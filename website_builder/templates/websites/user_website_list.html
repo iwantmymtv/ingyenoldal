@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans 'My websites' %}{% endblock %}
+{% block container %}container-fluid{% endblock container %}
+
+{% block content %}
+<div class="row mt-3 px-xl-5">
+  {% if website_list %}
+  <div class="col-md-6 col-lg-5 col-xl-3 mb-3 ">
+    <div class="h-100">
+      <a href="{% url 'builder:template-list' %}" style="text-decoration: none"class="text-dark w-100 border border-dark d-flex flex-column justify-content-center bg-white align-items-center h-100">
+          <span style="font-size: 80px;">+</span>
+      </a>
+    </div>
+  </div>
+  {% for w in website_list %}
+  <div class="col-md-6 col-lg-5 col-xl-3">
+    <a href="{{w.get_absolute_url}}" class="w-100">
+      {% if  w.image %}
+        <img src="{{w.image_thumbnail.url}}" alt="{{w.name}}" class="w-100 img-fluid border border-dark shadow-sm">
+      {% else %}
+        <img src="{{w.template.image_thumbnail.url}}" alt="{{w.name}}" class="w-100 img-fluid border border-dark shadow-sm">
+      {% endif %}
+    </a>
+    <p>{{w.name}}</p>
+  </div>
+  {% endfor %}
+  {% else %}
+  <div class="text-center col-12">
+    <h5>{% trans "You don't have any websites yet..." %}</h5>
+    <a href="{% url 'builder:template-list' %}" class="btn btn-primary mt-2">{% trans "Create" %}</a>
+  </div>
+  {% endif %}
+</div>
+<div class="row px-xl-5 d-flex justify-content-end">
+  {% if is_paginated %}
+  {% include "common/pagination_normal.html"  %}
+{% endif %}
+</div>
+{% endblock content %}
+

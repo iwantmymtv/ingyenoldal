@@ -1,0 +1,42 @@
+$primary: #b0433a;
+$secondary: #b39c8a;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #ac2a1e;
+$light: #f0eeed;
+$dark: #1c1b20;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+);
+
+$border-radius: 0px;
+$border-radius-sm: 0px ;
+$border-radius-lg: 0px;
+$input-border-color: $dark;
+
+#mainImage{
+  box-shadow: 12px 12px 0px 0px $primary;
+  transition: box-shadow 200ms ease-in;
+}
+
+#mainImage:hover{
+  box-shadow: -12px -12px 0px 0px $primary;
+}
+
+.responsive-iframe{
+  min-height: 80vh;
+  transition:max-width 300ms ease;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}

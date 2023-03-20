@@ -1,0 +1,70 @@
+#gjs {
+  border: none;
+}
+/* Theming */
+html,body{
+  height:100%;
+}
+/* Primary color for the background */
+.gjs-one-bg {
+  background-color: $light;
+}
+.gjs-blocks-c{
+  display: block;
+}
+.gjs-block{
+  width:auto;
+  min-height: 35px;
+  padding: 0px;
+  background-color: transparent !important;
+  color: $dark;
+  display: flex;
+  border: 1px solid $dark;
+  border-radius: 0px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.gjs-block-label{
+  width:100%;
+}
+
+.gjs-pn-btn.gjs-pn-active,.gjs-pn-views-container{
+  box-shadow: none;
+}
+.gjs-pn-views,.gjs-pn-commands{
+  border-bottom: 1px solid $secondary;
+  box-shadow: none;
+}
+.gjs-title{
+  border-bottom: 1px solid $dark;
+}
+
+/* Secondary color for the text color */
+.gjs-two-color {
+  color: $dark;
+}
+
+/* Tertiary color for the background */
+.gjs-three-bg {
+  background-color: $dark;
+  color: white;
+}
+
+/* Quaternary color for the text color */
+.gjs-four-color,
+.gjs-four-color-h:hover {
+  color: $primary;
+}
+
+
+
+.panel__top{
+  width: 100%;
+}
+.panel__basic-actions{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Templates{% endblock %}
+{% block container %}container-fluid{% endblock container %}
+
+{% block content %}
+<div class="row mt-3">
+  <div class="col-md-2 col-12">
+    <div class=" mb-3 d-flex flex-column">
+      <a href="{% url 'builder:template-list' %}"
+      class=" w-100 p-2 btn btn-outline-dark d-flex justify-content-center">
+        <span >
+          {% trans "All" %}
+        </span>
+      </a>
+      </div>
+
+      {% for k, v in current_dict.items %}
+        <div class="accordion mb-3 " id="accordion{{v.name}}">
+          {% include "builder/template_filter.html" with obj=v.obj name=v.name current=v.current_id param=k extra_params=v.extra_params %}
+        </div>
+      {% endfor %}
+
+  </div>
+  <div class="col-md-10 col-12">
+    <div class="row">
+      {% if template_list %}
+      {% for t in template_list %}
+      <div class="col-md-6 col-lg-4">
+        <a href="{{t.get_absolute_url}}" class="w-100 ">
+          <img src="{{t.image_thumbnail.url}}" alt="{{t.name}}" class="w-100 img-fluid border {% if t.is_premium %} border-success {% else %}border-dark{% endif %} shadow-sm">
+        </a>
+        <div class="d-flex justify-content-between">
+          <p>{{t.name}}</p>
+          <div class="d-flex flex-column">
+            {% if t.is_premium %}
+            <span class="text-success">{% trans 'Premium' %}</span>
+          {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% else %}
+        <h2 class="text-center my-5 w-100">
+          {% trans "Nothing found..." %}
+        </h2>
+      {% endif %}
+
+
+    </div>
+    {% if is_paginated %}
+      {% include "common/pagination.html" with p=current_dict %}
+    {% endif %}
+  </div>
+</div>
+
+{% endblock content %}

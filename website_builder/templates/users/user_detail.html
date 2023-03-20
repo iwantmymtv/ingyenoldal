@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Profile" %}: {{user.username}}{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <section class="bg-white border border-dark p-3">
+    <div class="row">
+      <div class="col-sm-12">
+
+        <h2>{{ object.username }}</h2>
+        {% if object.name %}
+          <p>{{ object.name }}</p>
+        {% endif %}
+        <p>{{object.email}}</p>
+      </div>
+    </div>
+
+  {% if object == request.user %}
+  <!-- Action buttons -->
+  <div class="row">
+
+    <div class="col-sm-12">
+
+      <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">{% trans "My info" %}</a>
+      <a class="btn btn-primary" href="{% url 'account_email' %}" role="button">{% trans "Emails" %}</a>
+      <a class="btn btn-outline-primary" href="{% url 'account_logout' %}" role="button">{% trans "Sign Out" %}</a>
+
+
+      <!-- Your Stuff: Custom user template urls -->
+    </div>
+
+  </div>
+  <!-- End Action buttons -->
+  {% endif %}
+
+
+</section>
+
+{% if user.has_subscription %}
+<section class="bg-white border border-dark p-3 mt-3">
+  <h2>{% trans 'Subscription' %}</h2>
+  <ul>
+    <li>
+      {% trans 'Plan' %}:
+      <span class="font-italic font-weight-light">{{user.get_subscription.plan.name}}</span>
+    </li>
+    <li>
+      {% trans 'Status' %}:
+      <span class="font-italic font-weight-light">{{user.get_subscription.get_status_display}}</span>
+    </li>
+    <li>
+      {% trans 'Price' %}:
+      <span class="font-italic font-weight-light">{{user.get_subscription.plan.price}} {% trans 'Ft / month' %}</span>
+    </li>
+    <li>
+      {% trans 'Current plan ends' %}:
+      <span class="font-italic font-weight-light">{{user.get_subscription.end_date}}</span>
+    </li>
+  </ul>
+
+  <form id="manage-billing-form">
+    <button class="btn btn-success">
+      {% trans 'Manage subscription' %}
+    </button>
+  </form>
+</section>
+{% endif %}
+
+  </div>
+
+{% endblock content %}
+
+
+
+{% block inline_javascript %}
+<script>
+  const manageBillingForm = document.querySelector('#manage-billing-form');
+  manageBillingForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    fetch("{% url 'subscriptions:customer-portal'%}", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": '{{ csrf_token }}'
+      }
+    })
+      .then(function(response) {
+        return response.json()
+      })
+      .then(function(data) {
+        window.location.href = data.url;
+      })
+      .catch(function(error) {
+        console.error('Error:', error);
+      });
+  });
+</script>
+{% endblock inline_javascript %}

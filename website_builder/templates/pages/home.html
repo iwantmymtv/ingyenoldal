@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block content %}
+<div class="row p-4 mb-5 h-100">
+
+  <div class="col-md-6 col-12 h-full d-flex align-items-center">
+    <div class="">
+      <h1>{% trans "Create websites for free!" %}</h1>
+      <p class="my-4 font-italic font-weight-light">{% trans 'Create modern beautiful, responsive websites in minutes!' %}</p>
+      <a class="btn btn-primary "href="{% url 'builder:template-list' %}">{% trans 'Select template' %}</a>
+    </div>
+  </div>
+  <div class="col-md-6 col-12 w-100 mt-5 mt-md-0">
+    <img id="mainImage" class=" border border-dark img-fluid" src="{% static 'images/home.jpeg' %}" alt="">
+    
+    </div>
+</div>
+{% endblock content %}

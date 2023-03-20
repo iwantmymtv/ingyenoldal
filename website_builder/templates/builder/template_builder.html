@@ -1,0 +1,102 @@
+{% load static compress %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/grapesjs/0.17.19/css/grapes.min.css"
+      integrity="sha512-nxsxLWv5xziszsBzFXdh2n6RbNVwNdx/QM3iYsypFlB6WMs7udsuJggnkB8pPLkQFyVPox4j0W0RN3WPB9vwig=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="{% static 'css/project.css' %}" rel="stylesheet" />
+    <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{% static 'images/favicons/apple-touch-icon.png' %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{% static 'images/favicons/favicon-32x32.png' %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{% static 'images/favicons/favicon-16x16.png' %}"
+    />
+    <link
+      rel="manifest"
+      href="{% static 'images/favicons/site.webmanifest' %}"
+    />
+    <title>{{template.name}} - Builder</title>
+  </head>
+
+  <body class="d-flex">
+    {% csrf_token %}
+    <div
+      id="pagesSide"
+      style="width: 12%"
+      class="bg-light border-right border-secondary"
+    >
+      <div class="mb-2">
+        <button id="addNewPage" class="btn btn-light w-100 btn">
+          Add new page
+        </button>
+      </div>
+      <ul id="pageListUl" class="list-group w-100"></ul>
+    </div>
+
+    <div
+      id="gjs"
+      {% if not website %}data-template-id="{{template.id}}"
+      {% else %}data-uid="{{website.uid}}"
+      {% endif %}
+      style="height: 0px"
+    ></div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/grapesjs/0.17.19/grapes.min.js"
+      integrity="sha512-rlmTNQ57xdyA6sFV7vl8SxqBFsddtmurHEtYACl8/lke/7YoYoUE3K1vQZf5eQO2wl3wHTb2wAbThKQuE2R8Gg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://unpkg.com/grapesjs-custom-code"></script>
+
+    {% compress js %}
+    <script src="{% static 'js/builder/utils.js' %}"></script>
+    <script src="{% static 'js/builder/plugins/component-traits.js' %}"></script>
+    <script src="{% static 'js/builder/init_constants.js' %}"></script>
+    <script src="{% static 'js/builder/index.js' %}"></script>
+
+    {% endcompress %}
+    <script>
+      const id = window.location.pathname.split("/")[3];
+
+      fetchTemplates(id).then((tmpl) => {
+        const init = grape_app(tmpl);
+        const editor = init.editor;
+        editor["max_pages"] = parseInt("{{max_page}}")
+        fetchUserAssets().then((asset_list) => {
+          asset_list.map((a) => {
+            editor.AssetManager.add(a.asset_thumbnail);
+          });
+        });
+        //panels
+        addPanels(editor.Panels);
+        addBlocks(tmpl.blocks, editor.BlockManager);
+        collapseBlockMenu(editor);
+        addExtraPages(editor.Pages, init.pages_array);
+        startEventListeners(editor)
+
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}{% trans "Contact" %}{% endblock %}
+
+{% block inner %}
+
+<h2>{% trans "Contact" %}</h2>
+<p>{% blocktrans %}Something wonderful{% endblocktrans %}</p>
+<hr>
+<form method="POST">
+  {% csrf_token %}
+  {{ form|crispy }}
+    <button class=" btn btn-primary" type="submit">{% trans "Send" %}</button>
+  </div>
+</form>
+
+
+
+{% endblock %}

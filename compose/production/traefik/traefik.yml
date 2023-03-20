@@ -1,0 +1,76 @@
+log:
+  #filePath: "/etc/traefik/log/log-file.log"
+  #format: json
+  level: INFO
+
+accessLog:
+  filePath: "./access.log"
+  bufferingSize: 100
+
+entryPoints:
+  web:
+    # http
+    address: ":80"
+    http:
+      # https://docs.traefik.io/routing/entrypoints/#entrypoint
+      redirections:
+        entryPoint:
+          to: web-secure
+
+  web-secure:
+    # https
+    address: ":443"
+
+certificatesResolvers:
+  letsencrypt:
+    # https://docs.traefik.io/master/https/acme/#lets-encrypt
+    acme:
+      email: "peter.taught@gmail.com"
+      storage: /etc/traefik/acme/acme.json
+      # https://docs.traefik.io/master/https/acme/#httpchallenge
+      httpChallenge:
+        entryPoint: web
+
+      dnsChallenge:
+        provider: godaddy
+        delayBeforeCheck: 1
+
+      tlsChallenge: {}
+
+http:
+  routers:
+    web-secure-router:
+      rule: "Host(`ingyenoldal.hu`) || Host(`www.ingyenoldal.hu`) || HostRegexp(`{subdomain:[A-Za-z0-9-]+}.ngye.in`) || HostRegexp(`{subdomain:[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-4[a-fA-F0-9]{3}-[8|9|aA|bB][a-fA-F0-9]{3}-[a-fA-F0-9]{12}}.ngye.in`)"
+
+      entryPoints:
+        - web-secure
+      middlewares:
+        - csrf
+      service: django
+      tls:
+        # https://docs.traefik.io/master/routing/routers/#certresolver
+        certResolver: letsencrypt
+        domains:
+          - main: "ingyenoldal.hu"
+            sans:
+              - "www.ingyenoldal.hu"
+      
+
+  middlewares:
+    csrf:
+      # https://docs.traefik.io/master/middlewares/headers/#hostsproxyheaders
+      # https://docs.djangoproject.com/en/dev/ref/csrf/#ajax
+      headers:
+        hostsProxyHeaders: ["X-CSRFToken"]
+
+  services:
+    django:
+      loadBalancer:
+        servers:
+          - url: http://django:5000
+
+providers:
+  # https://docs.traefik.io/master/providers/file/
+  file:
+    filename: /etc/traefik/traefik.yml
+    watch: true

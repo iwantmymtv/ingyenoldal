@@ -1,0 +1,16 @@
+{% extends "email_base.html" %}
+{% load i18n %}
+
+{% block preheader %}
+{% trans 'Subscription created!' %}
+{% endblock preheader %}
+{% block message %}
+<p>
+  {% trans 'Thank you for your subscription!' %}
+</p>
+
+<p>{% trans 'For more information go to your account' %}</p>
+
+<br>
+
+{% endblock message %}

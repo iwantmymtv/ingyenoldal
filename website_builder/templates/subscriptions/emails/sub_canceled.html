@@ -1,0 +1,16 @@
+{% extends "email_base.html" %}
+{% load i18n %}
+
+{% block preheader %}
+{% trans 'Subscription cancelled!' %}
+{% endblock preheader %}
+{% block message %}
+<p>
+  {% trans 'Your subscription has been cancelled!' %}
+</p>
+<p>{% trans 'You can still use our service until:' %} {{end_date}}</p>
+<p>{% trans 'To reactivate your subscription go to your account' %}</p>
+
+<br>
+
+{% endblock message %}

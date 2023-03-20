@@ -1,0 +1,16 @@
+{% extends "email_base.html" %}
+{% load i18n %}
+
+{% block preheader %}
+{% trans 'Payment failed!' %}
+{% endblock preheader %}
+{% block message %}
+<p>
+  {% trans 'There has been a problem with your payment' %}
+</p>
+
+<p>{% trans 'For more information go to your account' %}</p>
+
+<br>
+
+{% endblock message %}

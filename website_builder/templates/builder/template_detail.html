@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{{template.name}}{% endblock %}
+{% block container %}container-fluid{% endblock container %}
+
+{% block content %}
+
+<div class="row mt-3 px-lg-3">
+  <div class="col-lg-9 col-12">
+    {% include "common/responsive_devices.html" %}
+    <div class="w-100 border border-dark d-flex justify-content-center bg-secondary">
+      <iframe class="w-100 responsive-iframe shadow bg-white" frameBorder="0"  src="{{template.get_preview_url}}"></iframe>
+    </div>
+
+  </div>
+  <div class="col-lg-3 col-12">
+    <div class="card border-dark">
+      <div class="card-header">
+        {{template.name}}
+        {% for s in template.styles.all  %}
+        {% if s.url_path %}
+        <span class="badge badge-secondary text-white">{{s.name}}</span>
+        {% endif %}
+        {% endfor %}
+        {% if not template.is_editable %}
+        <span class="badge badge-dark text-white">Only download</span>
+        {% endif %}
+      </div>
+      <div class="card-body">
+       
+        <p class="card-text">
+        {{template.description}}
+        </p>
+        <div class="d-flex justify-content-between">
+          {% if template.is_editable%}
+          <a href="{{template.get_builder_url}}" class="btn btn-primary">{% trans "Go to builder" %}</a>
+          {% endif %}
+          <a href="{% url 'builder:template-list' %}" class="btn btn-outline-secondary">{% trans "Go back" %}</a>
+        </div>
+      </div>
+    </div>
+    <div class="card border border-dark mt-4">
+      <div class="card-body">
+        <a href="{{template.get_download_url}}" class="btn btn-success btn-block">{% trans "Download" %}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+
+{% block inline_javascript %}
+<script>
+const icons = document.getElementsByClassName('device-icon');
+const iframe = document.getElementsByTagName("IFRAME")[0]
+Array.from(icons).forEach(element => {
+  element.addEventListener('click', () => {
+    iframe.style.maxWidth = `${element.dataset.width}px`
+  });
+});
+ </script>
+{% endblock inline_javascript %}

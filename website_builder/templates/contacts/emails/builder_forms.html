@@ -1,0 +1,20 @@
+{% extends "email_base.html" %}
+{% load i18n %}
+
+{% block preheader %}
+{% trans 'You got a new message!' %}
+{% endblock preheader %}
+{% block message %}
+<h2 style="margin-bottom: 15px;">{% trans "You got a new message from this website:" %}</h2>
+<h3 style="font-weight: 200;margin-left: 8px;">{{website}}</h3>
+<br>
+<br>
+<div style="border: 1px solid black;padding:10px;text-align: left;">
+    {% for k,v in inputs.items %}
+    <p style="font-weight: bold;">{{k}}: <span style="font-weight: 200;margin-left: 8px;">{{v}}</span></p>
+    {% endfor %}
+</div>
+
+<br>
+
+{% endblock message %}

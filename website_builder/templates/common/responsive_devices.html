@@ -1,0 +1,20 @@
+{% load static %}
+
+<div class="d-flex justify-content-between w-100 p-1 py-2 bg-white border-top border-right border-left border-dark ">
+  <div>
+    <span class="ml-2 device-icon" data-width="1920" style="cursor:pointer">
+      <img width="24" height="24" src="{% static 'images/svgs/desktop.svg' %}" alt="desktop">
+    </span>
+    <span class="ml-2 device-icon" data-width="768" style="cursor:pointer">
+      <img width="19" height="20" src="{% static 'images/svgs/tablet.svg' %}" alt="desktop">
+    </span>
+    <span class="ml-2 device-icon" data-width="320" style="cursor:pointer">
+      <img width="17" height="16" src="{% static 'images/svgs/phone.svg' %}" alt="desktop">
+    </span>
+  </div>
+  {% if template %}
+  <div class="mr-2">
+    <a class="text-dark" target="_blank" rel="noopener noreferrer" href="{{template.get_preview_url}}">Preview</a>
+  </div>
+  {% endif %}
+</div>

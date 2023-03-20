@@ -1,0 +1,38 @@
+{% load i18n %}
+{% load filter_links %}
+
+{# oparams: obj, name, current, param #}
+<div class="card ">
+  <div class="" id="heading{{obj.name}}">
+    <h2 class="mb-0">
+      <button class="btn btn-outline-primary btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{name}}" aria-expanded="true" aria-controls="collapse{{name}}">
+        {% trans name %}
+      </button>
+    </h2>
+  </div>
+
+  <div id="collapse{{name}}" class="collapse {% if current %} show {% endif %}" aria-labelledby="heading{{obj.name}}" data-parent="#accordion{{name}}">
+      <div class="border-bottom   d-flex flex-column">
+        {% for o in obj %}
+        <div
+          class="d-flex justify-content-between
+              {% if current == o.id %}bg-dark text-white{% else %}bg-white text-dark{% endif %}">
+          <a
+            href="?{{param}}={{o.id}}{% filter_params %}"
+            class=" category-button w-100 p-2 ">
+              <span>{{o.name}}</span>
+          </a>
+
+          {% if current == o.id %}
+          <a href="{% filter_cancel %}"
+            class="text-white d-flex align-items-center mr-2">
+            x
+          </a>
+          {% endif %}
+        </div>
+
+
+        {% endfor %}
+        </div>
+  </div>
+</div>

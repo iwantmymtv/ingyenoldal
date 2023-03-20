@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans 'Hosting instruction' %}{% endblock %}
+
+{% block content %}
+<div class="row mt-3">
+ <div class="col-12">
+   <div class="card border-dark">
+     <div class="card-header text-center  py-5 bg-primary text-white">
+      <h2>{% trans 'How to connect your domain to your site' %}</h2>
+      <p>{{website.domain_name}}</p>
+      <p>{{hosted_website.s3_url}}</p>
+      <p>{{hosted_website.cloudfront_url}}</p>
+
+     </div>
+     <div class="card-body">
+       {% if hosted_website.cloudfront_url %}
+      {% include "websites/includes/edit_cname_ul.html" %}
+      <p>{% trans "That's it! (The redirect proccess could take up to 48 hours)" %}</p>
+
+       {% else %}
+       <div class="text-center my-5">
+         <h5>{% trans "First you have to host your website" %}</h5>
+        <a class="btn btn-success btn-lg" href="{% url 'websites:host-website' uuid=website.private_uuid %}">{% trans 'Click here to host it' %}</a>
+       </div>
+       {% endif %}
+
+
+      <hr>
+      <div class="my-4 text-center">
+        <p>{% trans "If you have any problem, please contact us!" %}</p>
+        <a class="btn btn-outline-primary" href="{% url 'contacts:create-contact' %}">{% trans "Contact" %}</a>
+      </div>
+     </div>
+   </div>
+ </div>
+</div>
+{% endblock content %}

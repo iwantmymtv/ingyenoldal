@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="hu" style="height:100%;">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{website.description}}">
+  <meta name="author" content="{{website.user.username}}.">
+  {% if website.icon %}
+  <link rel="icon" type="image/png" href="{{website.icon_small.url}}" />
+  {% endif %}
+
+  {% for s in styles %}
+  {% if s.url_path %}
+  <link rel="stylesheet" href="{{s.url_path}}">
+  {% endif %}
+  {% endfor %}
+
+  {% for s in scripts %}
+  {% if s.is_defered and s.url_path %}
+  <script defer src="{{s.url_path}}"></script>
+  {% endif %}
+  {% endfor %}
+  
+  <title>{{website.name}} {% if page %} | {{page.name}}{% endif %}</title>
+</head>
+<body style="overflow-x: hidden;height:100%">
+  <style>
+    {% if website.css %}
+
+      {% if page %}
+        {{page.css|safe}}
+      {% else %}
+        {{website.css|safe}}
+      {% endif %}
+
+    {% else %}
+      {% for s in styles %}
+      {% if s.style %}
+        {{s.style|safe}}
+      {% endif %}
+      {% endfor %}
+    {% endif %}
+  </style>
+  
+  {% if page %}
+    {{page.html_content|safe}}
+    {% else %}
+    {{html|safe}}
+    {% endif %}
+
+  {% if show_footer %}
+  <div style="width:100vw;padding:3px;"><small> Made with ❤ by: <a href="https://ingyenoldal.hu">ingyenoldal.<span style="font-style: italic;">hu</span></a></small></div>
+  {% endif %}
+
+    {% for s in scripts %}
+      {% if not s.is_defered and s.url_path %}
+      <script src="{{s.url_path}}"></script>
+      {% endif %}
+      {% if s.script %}
+      <script>{{s.script|safe}}</script>
+      {% endif %}
+    {% endfor %}
+</body>
+</html>

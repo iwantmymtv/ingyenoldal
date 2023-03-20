@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% trans 'Validate your url' %}{% endblock %}
+
+{% block content %}
+<div class="row mt-3">
+ <div class="col-12">
+   <div class="card border-dark">
+     <div class="card-header text-center  py-5 bg-primary text-white">
+      <h2>{% trans 'Validate your domain' %}</h2>
+     </div>
+     <div class="card-body">
+       <div class="col my-3">
+         <h5 class="m-4">{% trans "Your domain name:" %}
+           <span class="ml-2  font-weight-light p-1 ">{{website.domain_name}}
+            <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#editDomainModal">
+              {% trans "Edit domain" %}
+            </button>
+            </span>
+          </h5>
+         <table class="table border border-dark">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">{% trans "Name" %}</th>
+              <th scope="col">{% trans "Type" %}</th>
+              <th scope="col">{% trans "Value" %}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{hosted.validation_host}}</td>
+              <td>CNAME</td>
+              <td>{{hosted.validation_value}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <div class="text-center mb-5 mt-2">
+          <a class="btn btn-info btn-lg" href="{% url 'websites:check_validation_status' uuid=website.private_uuid %}">
+            {% trans "Check if domain has been validated" %}
+          </a>
+        </div>
+        <hr>
+        <div class="text-center mb-3">
+          <h3>{% trans "How to validate?" %}</h3>
+        </div>
+        {% include "websites/includes/edit_cname_ul.html" %}
+
+       </div>
+
+      <hr>
+      <div class="my-4 text-center">
+        <p>{% trans "If you have any problem, please contact us!" %}</p>
+        <a class="btn btn-outline-primary" href="{% url 'contacts:create-contact' %}">{% trans "Contact" %}</a>
+      </div>
+     </div>
+   </div>
+ </div>
+</div>
+{% endblock content %}
+
+{% block modal %}
+<div class="modal fade" id="editDomainModal" tabindex="-1" aria-labelledby="editDomainModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form action="{% url 'websites:amc' uuid=website.private_uuid %}" method="POST">
+        {% csrf_token %}
+      <div class="modal-header">
+        <h5 class="modal-title" id="editDomainModalLabel">{% trans "Edit domain name" %}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="text-danger">{% trans "Make sure you actually own this domain!" %}</p>
+        {{edit_domain_form|crispy}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans "Close" %}</button>
+        <button type="submit" class="btn btn-primary">{% trans "Edit" %}</button>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
+{% endblock modal %}

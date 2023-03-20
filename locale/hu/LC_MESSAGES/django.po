@@ -1,0 +1,912 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-23 15:56+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: website_builder/builder/apps.py:7
+msgid "Builder"
+msgstr "Tervező"
+
+#: website_builder/builder/models.py:17
+msgid "Template Category"
+msgstr "Sablon kategória"
+
+#: website_builder/builder/models.py:18
+msgid "Template Categories"
+msgstr "Sablon kategóriák"
+
+#: website_builder/builder/models.py:20 website_builder/builder/models.py:32
+#: website_builder/builder/models.py:44 website_builder/builder/models.py:56
+#: website_builder/builder/models.py:89 website_builder/builder/models.py:98
+#: website_builder/builder/models.py:122 website_builder/contacts/models.py:28
+#: website_builder/subscriptions/models.py:12
+#: website_builder/websites/models.py:43 website_builder/websites/models.py:108
+msgid "name"
+msgstr "név"
+
+#: website_builder/builder/models.py:21 website_builder/builder/models.py:58
+#: website_builder/subscriptions/models.py:13
+#: website_builder/websites/models.py:47
+msgid "description"
+msgstr "leírás"
+
+#: website_builder/builder/models.py:22 website_builder/builder/models.py:65
+#: website_builder/builder/models.py:133 website_builder/websites/models.py:67
+msgid "image"
+msgstr "kép"
+
+#: website_builder/builder/models.py:29
+msgid "Style"
+msgstr ""
+
+#: website_builder/builder/models.py:30
+msgid "Styles"
+msgstr ""
+
+#: website_builder/builder/models.py:33
+msgid "style"
+msgstr ""
+
+#: website_builder/builder/models.py:34 website_builder/builder/models.py:46
+msgid "url path"
+msgstr "url"
+
+#: website_builder/builder/models.py:41
+msgid "Script"
+msgstr ""
+
+#: website_builder/builder/models.py:42
+msgid "Scripts"
+msgstr ""
+
+#: website_builder/builder/models.py:45
+msgid "script"
+msgstr ""
+
+#: website_builder/builder/models.py:53 website_builder/websites/models.py:66
+msgid "Template"
+msgstr "Sablon"
+
+#: website_builder/builder/models.py:54 website_builder/templates/base.html:77
+msgid "Templates"
+msgstr "Sablonok"
+
+#: website_builder/builder/models.py:62 website_builder/builder/models.py:131
+msgid "category"
+msgstr "ketegória"
+
+#: website_builder/builder/models.py:64 website_builder/builder/models.py:137
+msgid "html content"
+msgstr "html tartalom"
+
+#: website_builder/builder/models.py:69
+msgid "is public"
+msgstr "publikus"
+
+#: website_builder/builder/models.py:70
+msgid "is premium"
+msgstr "prémium"
+
+#: website_builder/builder/models.py:71
+msgid "styles"
+msgstr ""
+
+#: website_builder/builder/models.py:72
+msgid "scripts"
+msgstr ""
+
+#: website_builder/builder/models.py:86
+msgid "Block category"
+msgstr "Blokk kategória"
+
+#: website_builder/builder/models.py:87
+msgid "Block categories"
+msgstr "Blokk kategóriák"
+
+#: website_builder/builder/models.py:95
+msgid "Attribute type"
+msgstr ""
+
+#: website_builder/builder/models.py:96
+msgid "Attribute types"
+msgstr ""
+
+#: website_builder/builder/models.py:104
+msgid "BlockAttribute"
+msgstr ""
+
+#: website_builder/builder/models.py:105
+msgid "BlockAttributes"
+msgstr ""
+
+#: website_builder/builder/models.py:107
+msgid "type"
+msgstr ""
+
+#: website_builder/builder/models.py:108
+msgid "value"
+msgstr ""
+
+#: website_builder/builder/models.py:114
+msgid "Block"
+msgstr ""
+
+#: website_builder/builder/models.py:115
+msgid "Blocks"
+msgstr ""
+
+#: website_builder/builder/models.py:140
+msgid "attributes"
+msgstr ""
+
+#: website_builder/builder/views.py:76
+msgid "Categories"
+msgstr "Kategóriák"
+
+#: website_builder/builder/views.py:117
+msgid "You have reached the maximum websites you can have in this plan!"
+msgstr "Elérted a maximális weboldalak számát ebben az előfizetésben!"
+
+#: website_builder/builder/views.py:121
+msgid "Only active subscribers can have more than 1 websites!"
+msgstr "Csak aktív előfizetőknek lehet 1-nél több weboldala!"
+
+#: website_builder/builder/views.py:124
+msgid "Only subscribers can use premium templates!"
+msgstr "Csak feliratkozelőfizetőkók használhatnak Prémium sablonokat"
+
+#: website_builder/contacts/apps.py:7 website_builder/contacts/models.py:11
+msgid "Contacts"
+msgstr ""
+
+#: website_builder/contacts/models.py:10 website_builder/templates/base.html:71
+#: website_builder/templates/base.html:125
+#: website_builder/templates/contacts/create_contact.html:7
+#: website_builder/templates/contacts/create_contact.html:11
+#: website_builder/templates/websites/cname_instruction.html:222
+msgid "Contact"
+msgstr "Kapcsolat"
+
+#: website_builder/contacts/models.py:19
+#: website_builder/subscriptions/models.py:49
+#: website_builder/websites/models.py:28 website_builder/websites/models.py:106
+msgid "user"
+msgstr "felhasználó"
+
+#: website_builder/contacts/models.py:23
+msgid "subject"
+msgstr "tárgy"
+
+#: website_builder/contacts/models.py:31
+msgid "message"
+msgstr "üzenet"
+
+#: website_builder/contacts/views.py:29
+msgid "Email send successfully!"
+msgstr "Email sikeresen elküldve!"
+
+#: website_builder/contacts/views.py:32
+msgid "Something went wrong! Try again..."
+msgstr "Valami hiba történt! Kérjük próbálja újra..."
+
+#: website_builder/subscriptions/apps.py:7
+#: website_builder/subscriptions/models.py:26
+msgid "Subscriptions"
+msgstr ""
+
+#: website_builder/subscriptions/emails.py:26
+msgid "Subscription successful"
+msgstr "Előfizetés sikeres"
+
+#: website_builder/subscriptions/emails.py:34
+msgid "Subscription failed"
+msgstr "Előfizetés sikertelen"
+
+#: website_builder/subscriptions/emails.py:43
+msgid "Payment successful"
+msgstr "Sikeres fizetés"
+
+#: website_builder/subscriptions/emails.py:52
+#: website_builder/subscriptions/models.py:42
+msgid "Payment failed"
+msgstr "Sikertelen fizetés"
+
+#: website_builder/subscriptions/emails.py:61
+msgid "Subscription canceled"
+msgstr "Előfizetés lemondva"
+
+#: website_builder/subscriptions/models.py:9
+#: website_builder/templates/users/user_detail.html:48
+msgid "Plan"
+msgstr "Csomag"
+
+#: website_builder/subscriptions/models.py:10
+#: website_builder/templates/base.html:69
+#: website_builder/templates/subscriptions/pricing_page.html:26
+msgid "Plans"
+msgstr "Csomagok"
+
+#: website_builder/subscriptions/models.py:15
+msgid "price"
+msgstr "ár"
+
+#: website_builder/subscriptions/models.py:25
+#: website_builder/templates/users/user_detail.html:45
+msgid "Subscription"
+msgstr "Előfizetés"
+
+#: website_builder/subscriptions/models.py:37
+msgid "Active"
+msgstr "Aktív"
+
+#: website_builder/subscriptions/models.py:38
+msgid "Past due"
+msgstr ""
+
+#: website_builder/subscriptions/models.py:39
+msgid "Canceled"
+msgstr "Lemondva"
+
+#: website_builder/subscriptions/models.py:40
+msgid "Incomplete"
+msgstr ""
+
+#: website_builder/subscriptions/models.py:41
+msgid "Incomplete expired"
+msgstr ""
+
+#: website_builder/subscriptions/models.py:43
+msgid "Ended"
+msgstr "Vége"
+
+#: website_builder/subscriptions/models.py:54
+msgid "status"
+msgstr "állapot"
+
+#: website_builder/subscriptions/models.py:56
+msgid "end date"
+msgstr ""
+
+#: website_builder/subscriptions/models.py:61
+msgid "plan"
+msgstr ""
+
+#: website_builder/templates/account/account_inactive.html:5
+#: website_builder/templates/account/account_inactive.html:8
+msgid "Account Inactive"
+msgstr "Fiók inaktív"
+
+#: website_builder/templates/account/account_inactive.html:10
+msgid "This account is inactive."
+msgstr "Eza fiók inaktív."
+
+#: website_builder/templates/account/email.html:7
+msgid "Account"
+msgstr "Fiók"
+
+#: website_builder/templates/account/email.html:10
+msgid "E-mail Addresses"
+msgstr "E-mail címek"
+
+#: website_builder/templates/account/email.html:13
+msgid "The following e-mail addresses are associated with your account:"
+msgstr ""
+
+#: website_builder/templates/account/email.html:27
+msgid "Verified"
+msgstr ""
+
+#: website_builder/templates/account/email.html:29
+msgid "Unverified"
+msgstr ""
+
+#: website_builder/templates/account/email.html:31
+msgid "Primary"
+msgstr ""
+
+#: website_builder/templates/account/email.html:37
+msgid "Make Primary"
+msgstr ""
+
+#: website_builder/templates/account/email.html:38
+msgid "Re-send Verification"
+msgstr ""
+
+#: website_builder/templates/account/email.html:39
+msgid "Remove"
+msgstr ""
+
+#: website_builder/templates/account/email.html:47
+msgid "Warning:"
+msgstr ""
+
+#: website_builder/templates/account/email.html:47
+msgid ""
+"You currently do not have any e-mail address set up. You should really add "
+"an e-mail address so you can receive notifications, reset your password, etc."
+msgstr ""
+
+#: website_builder/templates/account/email.html:52
+msgid "Add E-mail Address"
+msgstr ""
+
+#: website_builder/templates/account/email.html:57
+msgid "Add E-mail"
+msgstr ""
+
+#: website_builder/templates/account/email.html:67
+msgid "Do you really want to remove the selected e-mail address?"
+msgstr ""
+
+#: website_builder/templates/account/email_confirm.html:6
+#: website_builder/templates/account/email_confirm.html:10
+msgid "Confirm E-mail Address"
+msgstr ""
+
+#: website_builder/templates/account/email_confirm.html:16
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"address for user %(user_display)s."
+msgstr ""
+
+#: website_builder/templates/account/email_confirm.html:20
+msgid "Confirm"
+msgstr ""
+
+#: website_builder/templates/account/email_confirm.html:27
+#, python-format
+msgid ""
+"This e-mail confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr ""
+
+#: website_builder/templates/account/login.html:7
+#: website_builder/templates/account/login.html:11
+#: website_builder/templates/account/login.html:21
+#: website_builder/templates/base.html:94
+msgid "Sign In"
+msgstr ""
+
+#: website_builder/templates/account/login.html:12
+#, python-format
+msgid ""
+"If you have not created an account yet, then please <a href=\"%(signup_url)s"
+"\">sign up</a> first."
+msgstr "Ha még nem regsztráltál <a href=\"%(signup_url)s\">itt</a> megteheted."
+
+#: website_builder/templates/account/login.html:22
+msgid "Forgot Password?"
+msgstr ""
+
+#: website_builder/templates/account/login.html:28
+msgid "or login with"
+msgstr " vagy bejelentkezés ezzel"
+
+#: website_builder/templates/account/logout.html:5
+#: website_builder/templates/account/logout.html:8
+#: website_builder/templates/account/logout.html:17
+#: website_builder/templates/users/user_detail.html:30
+msgid "Sign Out"
+msgstr ""
+
+#: website_builder/templates/account/logout.html:10
+msgid "Are you sure you want to sign out?"
+msgstr ""
+
+#: website_builder/templates/account/password_change.html:6
+#: website_builder/templates/account/password_change.html:9
+#: website_builder/templates/account/password_change.html:14
+#: website_builder/templates/account/password_reset_from_key.html:5
+#: website_builder/templates/account/password_reset_from_key.html:8
+#: website_builder/templates/account/password_reset_from_key_done.html:4
+#: website_builder/templates/account/password_reset_from_key_done.html:7
+msgid "Change Password"
+msgstr ""
+
+#: website_builder/templates/account/password_reset.html:7
+#: website_builder/templates/account/password_reset.html:11
+#: website_builder/templates/account/password_reset_done.html:6
+#: website_builder/templates/account/password_reset_done.html:9
+msgid "Password Reset"
+msgstr ""
+
+#: website_builder/templates/account/password_reset.html:16
+msgid ""
+"Forgotten your password? Enter your e-mail address below, and we'll send you "
+"an e-mail allowing you to reset it."
+msgstr ""
+
+#: website_builder/templates/account/password_reset.html:21
+msgid "Reset My Password"
+msgstr ""
+
+#: website_builder/templates/account/password_reset.html:24
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr ""
+
+#: website_builder/templates/account/password_reset_done.html:15
+msgid ""
+"We have sent you an e-mail. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+
+#: website_builder/templates/account/password_reset_from_key.html:8
+msgid "Bad Token"
+msgstr ""
+
+#: website_builder/templates/account/password_reset_from_key.html:12
+#, python-format
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+msgstr ""
+
+#: website_builder/templates/account/password_reset_from_key.html:18
+msgid "change password"
+msgstr ""
+
+#: website_builder/templates/account/password_reset_from_key.html:21
+#: website_builder/templates/account/password_reset_from_key_done.html:8
+msgid "Your password is now changed."
+msgstr ""
+
+#: website_builder/templates/account/password_set.html:6
+#: website_builder/templates/account/password_set.html:9
+#: website_builder/templates/account/password_set.html:14
+msgid "Set Password"
+msgstr ""
+
+#: website_builder/templates/account/signup.html:7
+msgid "Signup"
+msgstr ""
+
+#: website_builder/templates/account/signup.html:10
+#: website_builder/templates/account/signup.html:19
+#: website_builder/templates/base.html:90
+msgid "Sign Up"
+msgstr ""
+
+#: website_builder/templates/account/signup.html:11
+#, python-format
+msgid ""
+"Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
+msgstr ""
+
+#: website_builder/templates/account/signup.html:24
+msgid "or register with"
+msgstr "vagy regsztrálj ezzel"
+
+#: website_builder/templates/account/signup_closed.html:5
+#: website_builder/templates/account/signup_closed.html:8
+msgid "Sign Up Closed"
+msgstr ""
+
+#: website_builder/templates/account/signup_closed.html:10
+msgid "We are sorry, but the sign up is currently closed."
+msgstr ""
+
+#: website_builder/templates/account/verification_sent.html:5
+#: website_builder/templates/account/verification_sent.html:8
+#: website_builder/templates/account/verified_email_required.html:5
+#: website_builder/templates/account/verified_email_required.html:8
+msgid "Verify Your E-mail Address"
+msgstr ""
+
+#: website_builder/templates/account/verification_sent.html:10
+msgid ""
+"We have sent an e-mail to you for verification. Follow the link provided to "
+"finalize the signup process. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+
+#: website_builder/templates/account/verified_email_required.html:12
+msgid ""
+"This part of the site requires us to verify that\n"
+"you are who you claim to be. For this purpose, we require that you\n"
+"verify ownership of your e-mail address. "
+msgstr ""
+
+#: website_builder/templates/account/verified_email_required.html:16
+msgid ""
+"We have sent an e-mail to you for\n"
+"verification. Please click on the link inside this e-mail. Please\n"
+"contact us if you do not receive it within a few minutes."
+msgstr ""
+
+#: website_builder/templates/account/verified_email_required.html:20
+#, python-format
+msgid ""
+"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
+"mail address</a>."
+msgstr ""
+
+#: website_builder/templates/base.html:66
+msgid "More"
+msgstr "Egyéb"
+
+#: website_builder/templates/base.html:70
+msgid "Tutorials"
+msgstr "Tutoriálok"
+
+#: website_builder/templates/base.html:81
+#: website_builder/templates/websites/user_website_list.html:4
+msgid "My websites"
+msgstr "Oldalaim"
+
+#: website_builder/templates/base.html:85
+msgid "My Profile"
+msgstr "Fiókom"
+
+#: website_builder/templates/base.html:129
+msgid "Admin"
+msgstr ""
+
+#: website_builder/templates/base.html:136
+msgid "website by"
+msgstr "oldalt készítette"
+
+#: website_builder/templates/builder/template_detail.html:50
+msgid "Go to builder"
+msgstr "Irány a szerkesztő"
+
+#: website_builder/templates/builder/template_detail.html:51
+msgid "Go back"
+msgstr "Vissza"
+
+#: website_builder/templates/builder/template_list.html:15
+msgid "All"
+msgstr "Mind"
+
+#: website_builder/templates/builder/template_list.html:38
+msgid "Premium"
+msgstr "Prémium"
+
+#: website_builder/templates/builder/template_list.html:45
+msgid "Nothing found..."
+msgstr "Nincs találat..."
+
+#: website_builder/templates/contacts/create_contact.html:12
+msgid "Something wonderful"
+msgstr "Valami nagyszerű"
+
+#: website_builder/templates/contacts/create_contact.html:17
+msgid "Send"
+msgstr "Küldés"
+
+#: website_builder/templates/email_base.html:384
+msgid "Email sent by"
+msgstr "Email-t küldte"
+
+#: website_builder/templates/pages/home.html:8
+msgid "Create websites for free!"
+msgstr "Weboldal készítés ingyen!"
+
+#: website_builder/templates/pages/home.html:9
+msgid "Create modern beautiful, responsive websites in minutes!"
+msgstr "Készíts modern reszponzív weboldalakat pár perc alatt!"
+
+#: website_builder/templates/pages/home.html:10
+msgid "Select template"
+msgstr "Sablon kiválsztása"
+
+#: website_builder/templates/subscriptions/emails/created.html:5
+msgid "Subscription created!"
+msgstr "Előfizetés létrehozva"
+
+#: website_builder/templates/subscriptions/emails/created.html:9
+#: website_builder/templates/subscriptions/emails/payment_success.html:9
+msgid "Thank you for your subscription!"
+msgstr "Köszönjünk az előfizetését"
+
+#: website_builder/templates/subscriptions/emails/created.html:12
+#: website_builder/templates/subscriptions/emails/payment_failed.html:12
+#: website_builder/templates/subscriptions/emails/payment_success.html:12
+#: website_builder/templates/subscriptions/emails/sub_failed.html:12
+msgid "For more information go to your account"
+msgstr "További információért látogasson el a fiókjához."
+
+#: website_builder/templates/subscriptions/emails/payment_failed.html:5
+msgid "Payment failed!"
+msgstr "Fizetés sikertelen!"
+
+#: website_builder/templates/subscriptions/emails/payment_failed.html:9
+msgid "There has been a problem with your payment"
+msgstr "Probléma volt a fizetésével."
+
+#: website_builder/templates/subscriptions/emails/payment_success.html:5
+msgid "Payment success!"
+msgstr "Sikeres fizetés"
+
+#: website_builder/templates/subscriptions/emails/payment_success.html:11
+msgid "Your payment was successful!"
+msgstr "A fizetésed sikeres volt!"
+
+#: website_builder/templates/subscriptions/emails/sub_canceled.html:5
+msgid "Subscription cancelled!"
+msgstr "Előfizetés lemondva"
+
+#: website_builder/templates/subscriptions/emails/sub_canceled.html:9
+msgid "Your subscription has been cancelled!"
+msgstr "Előfizetésed sikeresen lemondva!"
+
+#: website_builder/templates/subscriptions/emails/sub_canceled.html:11
+msgid "You can still use our service until:"
+msgstr "A szolgáltatásokat eddig az időpontig használhatod:"
+
+#: website_builder/templates/subscriptions/emails/sub_canceled.html:12
+msgid "To reactivate your subscription go to your account"
+msgstr "Előfizetés újraaktiválásához látogass el a fiókodhoz."
+
+#: website_builder/templates/subscriptions/emails/sub_failed.html:5
+msgid "Subscription failed!"
+msgstr "Előfizetés sikertelen!"
+
+#: website_builder/templates/subscriptions/emails/sub_failed.html:9
+msgid "There has been a problem with your subnscription!"
+msgstr "Valami probléma történt az előfizetéseddel!"
+
+#: website_builder/templates/subscriptions/pricing_page.html:45
+#: website_builder/templates/users/user_detail.html:57
+msgid "Ft / month"
+msgstr "Ft / hónap"
+
+#: website_builder/templates/subscriptions/pricing_page.html:49
+msgid "Manage my subscription"
+msgstr "Előfizetésem kezelése"
+
+#: website_builder/templates/subscriptions/pricing_page.html:51
+msgid "Update to this subscription"
+msgstr "Frissítés erre a csomagra"
+
+#: website_builder/templates/subscriptions/pricing_page.html:56
+msgid "Select"
+msgstr "Kiválaszt"
+
+#: website_builder/templates/subscriptions/pricing_page.html:58
+msgid "Sign In To Continue"
+msgstr "Folytatáshoz jelentkezz be"
+
+#: website_builder/templates/subscriptions/pricing_page.html:68
+msgid "There are no avaliable plans at the moment..."
+msgstr "Nincsenek elérhető csomagok..."
+
+#: website_builder/templates/users/user_detail.html:5
+msgid "Profile"
+msgstr "Profil"
+
+#: website_builder/templates/users/user_detail.html:28
+msgid "My info"
+msgstr "Infóim"
+
+#: website_builder/templates/users/user_detail.html:29
+msgid "Emails"
+msgstr "Email-ek"
+
+#: website_builder/templates/users/user_detail.html:52
+msgid "Status"
+msgstr "Státusz"
+
+#: website_builder/templates/users/user_detail.html:56
+msgid "Price"
+msgstr "Ár"
+
+#: website_builder/templates/users/user_detail.html:60
+msgid "Current plan ends"
+msgstr "Aktuális előfizetés vége"
+
+#: website_builder/templates/users/user_detail.html:67
+msgid "Manage subscription"
+msgstr "Előfizetésem kezelése"
+
+#: website_builder/templates/users/user_form.html:16
+msgid "Update"
+msgstr "Frissít"
+
+#: website_builder/templates/websites/cname_instruction.html:4
+msgid "Domain instructions"
+msgstr ""
+
+#: website_builder/templates/websites/cname_instruction.html:11
+msgid "How to connect your domain to your site"
+msgstr ""
+
+#: website_builder/templates/websites/cname_instruction.html:17
+msgid " 1. Go to your domain provider's site,locate the DNS management page."
+msgstr ""
+
+#: website_builder/templates/websites/cname_instruction.html:26
+#: website_builder/templates/websites/cname_instruction.html:67
+#: website_builder/templates/websites/cname_instruction.html:106
+#: website_builder/templates/websites/cname_instruction.html:149
+#: website_builder/templates/websites/cname_instruction.html:188
+msgid "Rackhost example"
+msgstr ""
+
+#: website_builder/templates/websites/cname_instruction.html:42
+#: website_builder/templates/websites/cname_instruction.html:83
+#: website_builder/templates/websites/cname_instruction.html:122
+#: website_builder/templates/websites/cname_instruction.html:165
+#: website_builder/templates/websites/cname_instruction.html:204
+msgid "NameCheap example"
+msgstr ""
+
+#: website_builder/templates/websites/cname_instruction.html:59
+msgid " 2. Go to manage/edit records."
+msgstr ""
+
+#: website_builder/templates/websites/cname_instruction.html:98
+msgid " 3. Go to add new record."
+msgstr ""
+
+#: website_builder/templates/websites/cname_instruction.html:137
+msgid " 4. Add new CNAME record."
+msgstr ""
+
+#: website_builder/templates/websites/cname_instruction.html:140
+msgid "the target value should be to link below"
+msgstr ""
+
+#: website_builder/templates/websites/cname_instruction.html:180
+msgid "5. Save"
+msgstr ""
+
+#: website_builder/templates/websites/cname_instruction.html:220
+msgid "That's it! (The redirect proccess could take up to 48 hours)"
+msgstr ""
+
+#: website_builder/templates/websites/cname_instruction.html:221
+msgid "If you have any problem, please contact us!"
+msgstr ""
+
+#: website_builder/templates/websites/user_website_detail.html:50
+msgid "Website settings"
+msgstr "Weboldal beállítások"
+
+#: website_builder/templates/websites/user_website_detail.html:60
+#, fuzzy
+#| msgid "Do you want to delete this website?"
+msgid "Connect your domain to this website"
+msgstr "Ki szeretnéd törölni ezt a weboldalt?"
+
+#: website_builder/templates/websites/user_website_detail.html:67
+msgid "Edit infos"
+msgstr "Szerkesztés"
+
+#: website_builder/templates/websites/user_website_detail.html:77
+msgid "Modified"
+msgstr "Módosítva"
+
+#: website_builder/templates/websites/user_website_detail.html:78
+msgid "Edited"
+msgstr "Szerkesztve"
+
+#: website_builder/templates/websites/user_website_detail.html:81
+msgid "Edit"
+msgstr "Szerkesztéshez"
+
+#: website_builder/templates/websites/user_website_detail.html:82
+msgid "Visit website"
+msgstr "Oldal megtekintése"
+
+#: website_builder/templates/websites/user_website_detail.html:90
+msgid "Download website"
+msgstr "Oldal letöltése"
+
+#: website_builder/templates/websites/user_website_detail.html:93
+msgid "Delete website"
+msgstr "oldal törlése"
+
+#: website_builder/templates/websites/user_website_detail.html:119
+msgid "Delete"
+msgstr "Törlés"
+
+#: website_builder/templates/websites/user_website_detail.html:125
+msgid "Do you want to delete this website?"
+msgstr "Ki szeretnéd törölni ezt a weboldalt?"
+
+#: website_builder/templates/websites/user_website_detail.html:128
+msgid "Cancel"
+msgstr "Mégse"
+
+#: website_builder/templates/websites/user_website_detail.html:129
+msgid "Yes"
+msgstr "Igen"
+
+#: website_builder/templates/websites/user_website_list.html:20
+msgid "You don't have any websites yet..."
+msgstr "Még nincs egy weboldalad sem..."
+
+#: website_builder/templates/websites/user_website_list.html:21
+msgid "Create"
+msgstr "Készítés"
+
+#: website_builder/users/admin.py:18
+msgid "Personal info"
+msgstr ""
+
+#: website_builder/users/admin.py:20
+msgid "Permissions"
+msgstr ""
+
+#: website_builder/users/admin.py:31
+msgid "Important dates"
+msgstr ""
+
+#: website_builder/users/apps.py:7
+msgid "Users"
+msgstr ""
+
+#: website_builder/users/forms.py:18
+#: website_builder/users/tests/test_forms.py:39
+msgid "This username has already been taken."
+msgstr ""
+
+#: website_builder/users/models.py:11
+msgid "Name of User"
+msgstr "Neved (nem felhasználónév)"
+
+#: website_builder/users/views.py:25
+msgid "Information successfully updated"
+msgstr "Információ sikeres frissítve"
+
+#: website_builder/websites/apps.py:7 website_builder/websites/models.py:22
+msgid "Websites"
+msgstr ""
+
+#: website_builder/websites/models.py:21
+msgid "Website"
+msgstr ""
+
+#: website_builder/websites/models.py:57
+msgid "domain name"
+msgstr ""
+
+#: website_builder/websites/models.py:59
+msgid "HTML content"
+msgstr ""
+
+#: website_builder/websites/models.py:71
+msgid "modified at"
+msgstr ""
+
+#: website_builder/websites/models.py:72
+msgid "created at"
+msgstr ""
+
+#: website_builder/websites/models.py:109
+msgid "asset"
+msgstr ""
+
+#: website_builder/websites/models.py:113
+msgid "upload time"
+msgstr ""
+
+#: website_builder/websites/views.py:74
+msgid "Successfully updated!"
+msgstr ""
+
+#: website_builder/websites/views.py:176
+msgid "Only subscribers can connect their domain!"
+msgstr "Csak előfizetők kopcsolhatják össze a domain nevüket."
+
+#~ msgid ""
+#~ "Try out, our modern website, builder for free. The templates and website "
+#~ "blocks made with Bootstrap 5, TailwindCSS, AlpineJS and more!"
+#~ msgstr "Próbáld ki a weblap szerkesztőnket ingyen! "

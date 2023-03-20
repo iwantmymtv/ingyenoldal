@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% load static i18n compress%}
+
+{% block title %}Subscriptions{% endblock %}
+
+{% block javascript %}
+<script src="https://js.stripe.com/v3/"></script>
+
+<!-- Vendor dependencies bundled as one file-->
+{% compress js %}
+<script defer src="{% static 'js/vendors.js' %}"></script>
+{% endcompress %}
+
+
+<!-- place project specific Javascript in this file -->
+{% compress js %}
+<script defer src="{% static 'js/project.js' %}"></script>
+{% endcompress %}
+
+{% endblock javascript %}
+
+
+{% block content %}
+<section>
+  <div class="text-center">
+    <h2 >{% trans "Plans" %}</h2>
+
+  </div>
+  <div class="row mt-md-5 mt-3">
+    {% if plans %}
+    {% for plan in plans %}
+    <div class="col-md-6 col-lg-4 mt-2">
+
+    <div class="card text-center border-dark">
+      <div class="card-header bg-dark text-white">
+        <h3>{{ plan.name }}</h3>
+      </div>
+      <div class="card-body">
+        <div>
+          <ul class="list-group border border-dark">
+         {{plan.description|safe}}
+         <li class="list-group-item" >{% trans "Remove footer ✅" %}</li>
+         <li class="list-group-item" >
+          {% trans "Can download template " %}
+          {% if plan.can_download %}✅{% else %}❌{% endif %}
+        </li>
+        <li class="list-group-item" >
+          {% trans "Premium templates " %}
+          {% if plan.can_use_premium %}✅{% else %}❌{% endif %}
+        </li>
+        <li class="list-group-item" >{{plan.enabled_websites}} website</li>
+        <li class="list-group-item" >
+          Max {{plan.max_page_per_site}} {% trans "Pages / website" %}
+        </li>
+        </ul>
+        </div>
+        <h5 class="mt-4">{{plan.price}} {% trans 'Ft / month' %}</h5>
+        {% if user.has_subscription %}
+          <a href="{% url 'users:detail' request.user.username  %}" class="btn btn-block  btn-success">
+          {% if user.get_subscription.plan.id == plan.id %}
+            {% trans 'Manage my subscription' %}
+          {% else %}
+            {% trans 'Update to this subscription' %}
+          {% endif %}
+          </a>
+        {% else %}
+          {% if user.is_authenticated %}
+          <button onclick="checkout(this)" data-priceId="{{plan.stripe_price_id}}" class="btn  btn-block  btn-success mt-3">{% trans "Select" %}</button>
+          {% else %}
+          <a id="log-in-link" class="btn btn-outline-success" href="{% url 'account_login' %}">{% trans "Sign In To Continue" %}</a>
+
+          {% endif %}
+        {% endif %}
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="text-center col-12">
+      <h5>{% trans 'There are no avaliable plans at the moment...' %}</h5>
+    </div>
+    {% endif %}
+  </div>
+
+</section>
+
+{% endblock content %}
+
+
+{% block inline_javascript %}
+
+{% if not user.has_subscription %}
+
+{% if user.is_authenticated %}
+<script>
+  const stripe = Stripe('{{public_key}}');
+
+  const createCheckoutSession = function(priceId) {
+    return fetch("/subscriptions/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": '{{ csrf_token }}'
+      },
+      body: JSON.stringify({
+        priceId: priceId
+      })
+    }).then(function(result) {
+      return result.json();
+    });
+  };
+
+  const checkout = (element) => {
+    const PRICE_ID = element.dataset.priceid
+    console.log(PRICE_ID)
+    createCheckoutSession(PRICE_ID).then(function(data) {
+      // Call Stripe.js method to redirect to the new Checkout page
+      console.log(data)
+      stripe.redirectToCheckout({
+          sessionId: data.sessionId
+        })
+        .then(handleResult);
+    });
+  }
+
+</script>
+{% endif %}
+
+
+{% endif %}
+
+
+{% endblock inline_javascript %}
